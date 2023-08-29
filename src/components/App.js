@@ -26,11 +26,23 @@ function App() {
     setQuestions(updatedQuestions)
   }
 
+  function handleUpdateCorrectIndex(updatedQuestion){
+    const updatedQuestions = questions.map(question => {
+        if(updatedQuestion.id === question.id){
+          return updatedQuestion
+        } else {
+          return question
+        }
+    })
+
+    setQuestions(updatedQuestions)
+  }
+
 
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm onNewQuestionAdd={handleNewQuestionAdd}/> : <QuestionList questions={questions} onQuestionDelete={handleQuestionDelete}/>}
+      {page === "Form" ? <QuestionForm onNewQuestionAdd={handleNewQuestionAdd}/> : <QuestionList questions={questions} onQuestionDelete={handleQuestionDelete} updateCorrectIndex={handleUpdateCorrectIndex}/>}
     </main>
   );
 }

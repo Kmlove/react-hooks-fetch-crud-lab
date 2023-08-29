@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import QuestionItem from "./QuestionItem";
 
-function QuestionList({questions, onQuestionDelete}) {
+function QuestionList({questions, onQuestionDelete, updateCorrectIndex}) {
   
   const questionItemList = questions.map(question => {
     return (
@@ -9,6 +9,7 @@ function QuestionList({questions, onQuestionDelete}) {
         key={question.id}
         question={question}
         onQuestionDelete={onQuestionDelete}
+        updateCorrectIndex={updateCorrectIndex}
       />
     )
   })
