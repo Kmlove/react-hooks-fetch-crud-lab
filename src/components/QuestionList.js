@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import QuestionItem from "./QuestionItem";
 
-function QuestionList({questions}) {
+function QuestionList({questions, onQuestionDelete}) {
   
   const questionItemList = questions.map(question => {
     return (
       <QuestionItem 
         key={question.id}
         question={question}
+        onQuestionDelete={onQuestionDelete}
       />
     )
   })
